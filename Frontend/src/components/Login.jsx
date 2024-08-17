@@ -1,9 +1,11 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import "../App.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
-    const [password, setPassword] = useState("");
+    const [form, setForm] = useState({ policeID: '', password: '' });
+    const Navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
 
@@ -11,14 +13,54 @@ const Login = () => {
         setShowPassword(!showPassword);
     };
 
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (form.policeID === '' || form.password === '') {
+            alert('Please fill all fields');
+            return;
+        }
+
+        try {
+            const response = await axios.post('http://localhost:3000/login', {
+                policeID: form.policeID,
+                password: form.password
+            });
+
+            console.log('Login response:', response.data);
+
+            if (response.data.success) {
+                alert('Logged in successfully');
+                // Store the JWT token
+                const token = response.data.token
+                const role = response.data.role
+                const id = response.data.id1
+                localStorage.setItem('role', role);
+                localStorage.setItem('token', token);
+                localStorage.setItem('id', id);
+                // Redirect the user to the search page
+                Navigate(`/search/${token}`);
+            } else {
+                alert('Invalid credentials');
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            alert('Incorrect credentials. Please try again.');
+        }
+    };
+
     return (
         <>
             <div>
                 <Link to="/">
-                    <i className='animate-fadeIn absolute z-10 bg-[#58C858] text-[#224420] top-5 left-5 p-3 rounded-lg cursor-pointer'><i class="fa-solid fa-arrow-left mr-3"></i>Back</i>
+                    <i className='absolute z-10 bg-[#58C858] text-[#224420] top-5 left-5 p-3 rounded-lg cursor-pointer'><i class="fa-solid fa-arrow-left mr-3"></i>Back</i>
                 </Link>
             </div>
-            <section className="bg-black animate-fadeIn">
+            <section className="bg-black animate-fadeInUp">
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                     <a
                         href="#"
@@ -38,7 +80,7 @@ const Login = () => {
                             <form className="space-y-4 md:space-y-6" action="#">
                                 <div>
                                     <label for="email" className="block mb-2 text-sm font-medium text-[#58C858]">Police station ID</label>
-                                    <input type="text" name="police-id" id="police-id" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="police station ID" required="">
+                                    <input type="text" name="policeID" onChange={(e) => handleChange(e)} value={form.policeID} id="police-id" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="police station ID" required="">
                                     </input>
                                 </div>
                                 <div>
@@ -52,12 +94,12 @@ const Login = () => {
                                         <input
                                             type={showPassword ? "text" : "password"}
                                             name="password"
+                                            onChange={(e) => handleChange(e)}
+                                            value={form.password}
                                             id="password"
                                             required="true"
                                             placeholder='password'
-                                            value={password}
                                             className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            onChange={(e) => setPassword(e.target.value)}
                                         />
                                         <button
                                             type="button"
@@ -72,8 +114,7 @@ const Login = () => {
                                         </button>
                                     </div>
                                 </div>
-                                <button type="submit" className="w-full text-[black] bg-[#58C858] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
-
+                                <button type="submit" onClick={(e) => handleSubmit(e)} className="w-full text-[black] bg-[#58C858] hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                             </form>
                         </div>
                     </div>

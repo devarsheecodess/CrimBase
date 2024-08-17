@@ -20,7 +20,7 @@ const Landing = () => {
             </header>
 
             <div>
-                <h1 className="text-3xl text-white font-bold text-center mt-60 animate-fadeIn">Welcome To CrimBase!</h1>
+                <h1 className="text-3xl text-white font-bold text-center mt-60 animate-fadeInUp">Welcome To CrimBase!</h1>
             </div>
         </div>
     )
