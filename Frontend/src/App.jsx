@@ -5,6 +5,11 @@ import Landing from './components/Landing';
 import ProtectedRoute from './components/ProtectedRoute';
 import GrantAccess from './components/GrantAccess';
 import Search from './components/Search';
+import Header from './components/Header';
+import AddCriminal from './components/AddCriminal';
+import Fingerprint from './components/Fingerprint';
+import DNA from './components/DNA';
+import Face from './components/Face';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -34,7 +39,48 @@ const App = () => {
     },
     {
       path: '/search/:id',
-      element: <Search />,
+      element: (
+        <div>
+          <Header />
+          <Search />
+        </div>
+      ),
+    },
+    {
+      path: '/addCriminal/:id',
+      element: (
+        <div>
+          <Header />
+          <AddCriminal />
+        </div>
+      ),
+    },
+    {
+      path: '/fingerprint/:id',
+      element: (
+        <div>
+          <Header />
+          <Fingerprint />
+        </div>
+      ),
+    },
+    {
+      path: '/dna/:id',
+      element: (
+        <div>
+          <Header />
+          <DNA />
+        </div>
+      ),
+    },
+    {
+      path: '/face/:id',
+      element: (
+        <div>
+          <Header />
+          <Face />
+        </div>
+      ),
     },
   ]);
 

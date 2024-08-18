@@ -16,7 +16,7 @@ const ProtectedRoute = () => {
           id: id
         });
         setRole(response.data.role);
-        // console.log(role)
+        console.log(role)
       } catch (error) {
         console.error('Login error:', error);
         // alert('An error occurred. Please try again.');
@@ -30,10 +30,10 @@ const ProtectedRoute = () => {
 
   if (role === 'admin') {
     console.log("You are the chosen one!")
-    return <div><GrantAccess/></div>;
+    return <div><GrantAccess /></div>;
   } else {
-    return <div><Unauthorised /></div>
     console.log("You are not the chosen one XD")
+    return <div><Unauthorised /></div>
   }
 };
 

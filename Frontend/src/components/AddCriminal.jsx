@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
 
 const Search = () => {
   const [role, setRole] = useState(localStorage.getItem('role'));
@@ -7,7 +6,7 @@ const Search = () => {
 
   return (
     <div className='animate-fadeInUp'>
-      <h1 className='text-white m-8'>search for a criminal</h1>
+      <h1 className='text-white m-8'>Add a criminal</h1>
     </div>
   )
 }

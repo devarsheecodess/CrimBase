@@ -7,7 +7,7 @@ const Search = () => {
 
   return (
     <div className='animate-fadeInUp'>
-      <h1 className='text-white m-8'>search for a criminal</h1>
+      <h1 className='text-white m-8'>search for a fingerprint</h1>
     </div>
   )
 }
