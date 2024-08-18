@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    id: String,
+    id: {type: String, required: true, unique: true},
     role: { type: String, default: "user" },
     StationName: { type: String, required: true },
     Address: { type: String, required: true },

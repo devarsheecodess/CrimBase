@@ -10,12 +10,17 @@ import AddCriminal from './components/AddCriminal';
 import Fingerprint from './components/Fingerprint';
 import DNA from './components/DNA';
 import Face from './components/Face';
+import Error from './components/Error';
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: '/',
       element: <Landing />,
+    },
+    {
+      path: '*',
+      element: <Error />,
     },
     {
       path: '/grant-access/:id',

@@ -64,10 +64,7 @@ const Login = () => {
                 <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
                     <a
                         href="#"
-                        className="flex items-center mb-6 text-3xl font-bold text-[#58C858]"
-                        style={{
-                            textShadow: 'rgba(88, 200, 88, 0.8) 0px 0px 15px, rgba(88, 200, 88, 0.8) 0px 0px 15px'
-                        }}
+                        className="flex items-center mb-6 text-3xl font-bold text-[#58C858] text-shadow-glow"
                     >
                         CrimBase
                     </a>
