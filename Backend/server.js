@@ -6,6 +6,8 @@ const jwt = require("jsonwebtoken");
 // Models
 const User = require("./Models/User");
 const Criminal = require("./Models/Criminal");
+const Face = require("./Models/Faces");
+const Fingerprint = require("./Models/Fingerprint");
 
 dotenv.config();
 
@@ -103,6 +105,32 @@ app.post("/criminals", async (req, res) => {
   } catch (error) {
     console.error("Error adding criminal:", error);
     res.status(400).json({ success: false, message: "Failed to add criminal", error: error.message });
+  }
+});
+
+// Post Faces
+app.post("/faces", async (req, res) => {
+  const { data } = req.body;
+  try {
+    const face = new Face(data);
+    await face.save();
+    res.status(201).json({ success: true, face });
+  } catch (error) {
+    console.error("Error adding face:", error);
+    res.status(400).json({ success: false, message: "Failed to add face", error: error.message });
+  }
+});
+
+// Post Fingerprints
+app.post("/fingerprints", async (req, res) => {
+  const { data } = req.body;
+  try {
+    const fingerprint = new Fingerprint(data);
+    await fingerprint.save();
+    res.status(201).json({ success: true, fingerprint });
+  } catch (error) {
+    console.error("Error adding fingerprint:", error);
+    res.status(400).json({ success: false, message: "Failed to add fingerprint", error: error.message });
   }
 });
 

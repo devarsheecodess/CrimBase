@@ -64,8 +64,11 @@ const AddCriminal = () => {
         fingerprint: base64FingerprintURL
       });
 
-      const response = await axios.post('http://localhost:3000/criminals', { data: form });
+      const response1 = await axios.post('http://localhost:3000/criminals', { data: form });
+      const response2 = await axios.post('http://localhost:3000/faces', { data: { id: form.id, photo: form.photo } });
+      const response3 = await axios.post('http://localhost:3000/fingerprints', { data: { id: form.id, fingerprint: form.fingerprint } });
       console.log(form);
+      alert('Criminal added successfully');
     } catch (error) {
       console.error("Error encoding file:", error);
     }
