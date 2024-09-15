@@ -3,8 +3,9 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const jwt = require("jsonwebtoken");
 
-//Models
+// Models
 const User = require("./Models/User");
+const Criminal = require("./Models/Criminal");
 
 dotenv.config();
 
@@ -14,8 +15,9 @@ const port = process.env.PORT || 3000;
 const cors = require("cors");
 app.use(cors());
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// Increase the limit of request body size
+app.use(express.json({ limit: '10mb' })); // Adjust the limit as needed
+app.use(express.urlencoded({ extended: true, limit: '10mb' })); // Adjust the limit as needed
 
 // Connect MongoDB
 mongoose
@@ -34,6 +36,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+// Register a new user
 app.post('/register', async (req, res) => {
   console.log('Request body:', req.body); // Log request body
 
@@ -47,7 +50,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
-//Login
+// Login
 app.post("/login", async (req, res) => {
   const { policeID, password } = req.body;
 
@@ -57,14 +60,12 @@ app.post("/login", async (req, res) => {
     if (user) {
       if (user.password === password) {
         // Create a JWT token
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
           expiresIn: "2h",
         });
-        res.json({ success: true, token, role: user.role, id1: user.id });
+        res.json({ success: true, token, role: user.role, id: user.id });
       } else {
-        res
-          .status(401)
-          .json({ success: false, message: "Invalid credentials" });
+        res.status(401).json({ success: false, message: "Invalid credentials" });
       }
     } else {
       res.status(404).json({ success: false, message: "User not found" });
@@ -75,20 +76,46 @@ app.post("/login", async (req, res) => {
   }
 });
 
-//Check role of the user
+// Check role of the user
 app.post("/role", async (req, res) => {
   const { id } = req.body;
 
   try {
-    const user = await User.findOne({id: id})
+    const user = await User.findOne({ id: id });
     if (user) {
-      res.json({success: true, role: user.role})
+      res.json({ success: true, role: user.role });
     } else {
-      res.status(404).json({success: false, message: "User not found"})
+      res.status(404).json({ success: false, message: "User not found" });
     }
   } catch (err) {
     console.error("Error during role check:", err);
-    res.status(500).json({success: false, message: "An error occurred"})
+    res.status(500).json({ success: false, message: "An error occurred" });
+  }
+});
+
+// Post Criminals
+app.post("/criminals", async (req, res) => {
+  const { data } = req.body;
+  try {
+    const criminal = new Criminal(data);
+    await criminal.save();
+    res.status(201).json({ success: true, criminal });
+  } catch (error) {
+    console.error("Error adding criminal:", error);
+    res.status(400).json({ success: false, message: "Failed to add criminal", error: error.message });
+  }
+});
+
+// Get Criminals
+app.get("/criminals", async (req, res) => {
+  const { name } = req.query;
+  try {
+    // Search criminals by name, using a case-insensitive regular expression
+    const criminals = await Criminal.find({ name: name });
+    res.json(criminals);
+  } catch (error) {
+    console.error("Error fetching criminals:", error);
+    res.status(500).json({ success: false, message: "Failed to fetch criminals", error: error.message });
   }
 });
 
