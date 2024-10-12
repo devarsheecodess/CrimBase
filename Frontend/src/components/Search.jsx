@@ -52,7 +52,7 @@ const Search = () => {
             className='rounded-lg p-2 pl-10 outline-none border border-gray-300 focus:ring-2 focus:ring-blue-500'
             placeholder='Search for a criminal'
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => setSearch(e.target.value.toLowerCase())}
           />
         </div>
         <button className='p-2 bg-[#58C858] text-[#224420] font-medium rounded-lg' onClick={(e) => handleSearch()}>

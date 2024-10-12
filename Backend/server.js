@@ -8,6 +8,7 @@ const User = require("./Models/User");
 const Criminal = require("./Models/Criminal");
 const Face = require("./Models/Faces");
 const Fingerprint = require("./Models/Fingerprint");
+const DNA = require("./Models/DNA");
 
 dotenv.config();
 
@@ -138,6 +139,43 @@ app.get("/criminals", async (req, res) => {
       });
   }
 });
+
+// Post Criminals on DNA
+app.post("/dna", async (req, res) => {
+  const { data } = req.body;
+  try {
+    const criminal = new DNA(data);
+    await criminal.save();
+    res.status(201).json({ success: true, criminal });
+  } catch (error) {
+    console.error("Error adding criminal:", error);
+    res
+      .status(400)
+      .json({
+        success: false,
+        message: "Failed to add criminal",
+        error: error.message,
+      });
+  }
+});
+
+// Get DNA
+app.get("/dna", async(req, res) => {
+  const { dna } = req.query;
+  try {
+    const criminals = await Criminal.find({ dna: dna });
+    res.json(criminals);
+  } catch (error) {
+    console.error("Error fetching criminals:", error);
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "Failed to fetch criminals",
+        error: error.message,
+      });
+  }
+})
 
 // Post Faces
 app.post("/faces", async (req, res) => {

@@ -67,6 +67,7 @@ const AddCriminal = () => {
       const response1 = await axios.post('http://localhost:3000/criminals', { data: form });
       const response2 = await axios.post('http://localhost:3000/faces', { data: { id: form.id, photo: form.photo } });
       const response3 = await axios.post('http://localhost:3000/fingerprints', { data: { id: form.id, fingerprint: form.fingerprint } });
+      const response4 = await axios.post('http://localhost:3000/dna', { data: form });
       console.log(form);
       alert('Criminal added successfully');
     } catch (error) {
