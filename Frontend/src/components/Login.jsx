@@ -38,7 +38,7 @@ const Login = () => {
                 // Store the JWT token
                 const token = response.data.token
                 const role = response.data.role
-                const id = response.data.id1
+                const id = response.data.id
                 localStorage.setItem('role', role);
                 localStorage.setItem('token', token);
                 localStorage.setItem('id', id);

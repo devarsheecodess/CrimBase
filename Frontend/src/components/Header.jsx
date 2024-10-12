@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Header = ({ token, role }) => {
+const Header = () => {
     const [activeButton, setActiveButton] = useState('');
+    const [token, setToken] = useState(localStorage.getItem('token'));
+    const [role, setRole] = useState(localStorage.getItem('role'));
 
     const handleLogout = () => {
         const cf = window.confirm('Are you sure you want to logout?');
