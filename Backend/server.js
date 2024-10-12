@@ -18,8 +18,8 @@ const cors = require("cors");
 app.use(cors());
 
 // Increase the limit of request body size
-app.use(express.json({ limit: '10mb' })); // Adjust the limit as needed
-app.use(express.urlencoded({ extended: true, limit: '10mb' })); // Adjust the limit as needed
+app.use(express.json({ limit: "10mb" })); // Adjust the limit as needed
+app.use(express.urlencoded({ extended: true, limit: "10mb" })); // Adjust the limit as needed
 
 // Connect MongoDB
 mongoose
@@ -39,16 +39,22 @@ app.get("/", (req, res) => {
 });
 
 // Register a new user
-app.post('/register', async (req, res) => {
-  console.log('Request body:', req.body); // Log request body
+app.post("/register", async (req, res) => {
+  console.log("Request body:", req.body); // Log request body
 
   try {
     const newUser = new User(req.body);
     await newUser.save();
     res.status(201).json({ success: true, user: newUser });
   } catch (error) {
-    console.error('Error creating user:', error);
-    res.status(400).json({ success: false, message: 'User registration failed', error: error.message });
+    console.error("Error creating user:", error);
+    res
+      .status(400)
+      .json({
+        success: false,
+        message: "User registration failed",
+        error: error.message,
+      });
   }
 });
 
@@ -67,7 +73,9 @@ app.post("/login", async (req, res) => {
         });
         res.json({ success: true, token, role: user.role, id: user.id });
       } else {
-        res.status(401).json({ success: false, message: "Invalid credentials" });
+        res
+          .status(401)
+          .json({ success: false, message: "Invalid credentials" });
       }
     } else {
       res.status(404).json({ success: false, message: "User not found" });
@@ -104,7 +112,30 @@ app.post("/criminals", async (req, res) => {
     res.status(201).json({ success: true, criminal });
   } catch (error) {
     console.error("Error adding criminal:", error);
-    res.status(400).json({ success: false, message: "Failed to add criminal", error: error.message });
+    res
+      .status(400)
+      .json({
+        success: false,
+        message: "Failed to add criminal",
+        error: error.message,
+      });
+  }
+});
+
+// Get criminals
+app.get("/criminals", async (req, res) => {
+  try {
+    const criminals = await Criminal.find();
+    res.json(criminals);
+  } catch (error) {
+    console.error("Error fetching criminals:", error);
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "Failed to fetch criminals",
+        error: error.message,
+      });
   }
 });
 
@@ -117,7 +148,13 @@ app.post("/faces", async (req, res) => {
     res.status(201).json({ success: true, face });
   } catch (error) {
     console.error("Error adding face:", error);
-    res.status(400).json({ success: false, message: "Failed to add face", error: error.message });
+    res
+      .status(400)
+      .json({
+        success: false,
+        message: "Failed to add face",
+        error: error.message,
+      });
   }
 });
 
@@ -130,7 +167,13 @@ app.post("/fingerprints", async (req, res) => {
     res.status(201).json({ success: true, fingerprint });
   } catch (error) {
     console.error("Error adding fingerprint:", error);
-    res.status(400).json({ success: false, message: "Failed to add fingerprint", error: error.message });
+    res
+      .status(400)
+      .json({
+        success: false,
+        message: "Failed to add fingerprint",
+        error: error.message,
+      });
   }
 });
 
@@ -143,7 +186,13 @@ app.get("/criminals", async (req, res) => {
     res.json(criminals);
   } catch (error) {
     console.error("Error fetching criminals:", error);
-    res.status(500).json({ success: false, message: "Failed to fetch criminals", error: error.message });
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "Failed to fetch criminals",
+        error: error.message,
+      });
   }
 });
 

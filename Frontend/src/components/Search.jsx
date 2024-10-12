@@ -1,30 +1,45 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Search = () => {
   const [search, setSearch] = useState('');
-  const [criminal, setCriminal] = useState([]);
+  const [criminalList, setCriminalList] = useState([]);
 
-  const handleChange = (e) => {
-    setSearch(e.target.value);
-  }
+  const [searchList, setSearchList] = useState([]);
 
-  const handleSearch = async (e) => {
+  const fetchData = async () => {
     try {
-      console.log(search); // Log the search term
-
-      // Send the GET request with search term as a query parameter
-      const response = await axios.get(`http://localhost:3000/criminals`, { params: { name: search } });
-
-      // Access the data directly
-      const data = response.data;
-
-      console.log(data); // Log the response data
-      setCriminal(data); // Update the state with the fetched data
+      const response = await axios.get(`http://localhost:3000/criminals`);
+      console.log(response.data);
+      setCriminalList(response.data);
     } catch (error) {
-      console.error('Error fetching criminals:', error); // Handle errors
+      console.error('Error fetching criminals:', error);
     }
   };
+
+  const handleSearch = (e) => {
+    try {
+      setSearch(search.toLowerCase());
+      console.log(search);
+      if (search) {
+        const filtered = criminalList.filter((criminal) =>
+          criminal.name.toLowerCase().includes(search)
+        );
+
+        if (filtered.length === 0) {
+          alert("No results found!");
+        }
+
+        setSearchList(filtered);
+      }
+    } catch (error) {
+      console.error('Error filtering criminals:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
 
   return (
@@ -37,7 +52,7 @@ const Search = () => {
             className='rounded-lg p-2 pl-10 outline-none border border-gray-300 focus:ring-2 focus:ring-blue-500'
             placeholder='Search for a criminal'
             value={search}
-            onChange={(e) => handleChange(e)}
+            onChange={(e) => setSearch(e.target.value)}
           />
         </div>
         <button className='p-2 bg-[#58C858] text-[#224420] font-medium rounded-lg' onClick={(e) => handleSearch()}>
@@ -49,7 +64,7 @@ const Search = () => {
         <div className='bg-gray-500 w-full h-[450px] rounded-lg mt-3 flex justify-between overflow-y-scroll'>
           {/* Showcase the data here */}
           {
-            criminal.map((criminal) => {
+            searchList.map((criminal) => {
               return (
                 <div className='bg-gray-500 w-full h-[450px] rounded-lg mt-3 flex justify-between'>
                   <div className='mt-10 ml-24'>
