@@ -6,6 +6,7 @@ const CriminalSchema = new Schema({
   id: { type: String, required: true, unique: true },
   photo: { type: String },
   name: { type: String, required: true },
+  age: { type: Number },
   gender: { type: String, required: true },
   address: { type: String },
   dob: { type: Date },

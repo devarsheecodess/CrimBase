@@ -5,68 +5,69 @@ const Search = () => {
 
   const handleChange = (e) => {
     setFingerprint(e.target.value);
-  }
+  };
 
   const handleSearch = () => {
     // Implement the search functionality here
-  }
+  };
 
   return (
-    <>
-      <div className='flex flex-col items-center gap-4 justify-center mt-5 relative animate-fadeInUp'>
+    <div className='flex lg:justify-around flex-col lg:flex-row lg:mt-20'>
+      <div className='flex items-center gap-6 justify-center mt-10 relative animate-fadeInUp'>
         <div className='w-full max-w-xs'>
           <label
-            className="block mb-2 text-sm font-medium text-[#58C858] text-shadow-glow"
+            className="block mb-2 text-lg font-bold text-green-600"
             htmlFor="file_input">
             Search Fingerprint
           </label>
           <input
-            className="block p-3 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            className="block p-3 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent h-12"
             aria-describedby="file_input_help"
             id="file_input"
             type="file"
             name='fingerprint'
             value={fingerprint}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
           <p
-            className="mt-1 text-sm text-gray-500 dark:text-gray-300"
+            className="mt-1 text-sm text-gray-500"
             id="file_input_help">
             SVG, PNG, JPG, or GIF (MAX. 800x400px).
           </p>
         </div>
-        <button className='p-3 bg-[#58C858] text-[#224420] font-medium rounded-lg hover:bg-[#4CAF50]'>
+        <button
+          onClick={handleSearch}
+          className='p-3 bg-green-600 text-white font-semibold rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:bg-green-700 hover:shadow-xl hover:scale-105'>
           Search
         </button>
       </div>
 
-
-      <div className='flex justify-center ml-20 mr-20 p-10 animate-fadeInUp'>
-        <div className='bg-gray-500 w-full h-[360px] rounded-lg flex justify-between' >
+      <div className='flex justify-center ml-10 mr-10 p-10 animate-fadeInUp'>
+        <div className='bg-gradient-to-r from-green-400 to-green-300 w-full h-[360px] rounded-lg flex justify-between gap-10 shadow-lg overflow-hidden'>
           {/* Showcase the data here */}
-          <div className='mt-10 ml-24'>
-            <h1 className='font-bold text-xl'>Details Of the Criminal</h1>
-            <div className='overflow-y-scroll w-[400px] mt-5'>
-              <p className='text-sm'>Name: John Doe</p>
-              <p className='text-sm'>Age: 25</p>
-              <p className='text-sm'>Gender: Male</p>
-              <p className='text-sm'>Location: New York</p>
-              <p className='text-sm'>Profession: Student</p>
-              <p className='text-sm'>Name: John Doe</p>
-              <p className='text-sm'>Age: 25</p>
-              <p className='text-sm'>Gender: Male</p>
-              <p className='text-sm'>Location: New York</p>
-              <p className='text-sm'>Profession: Student</p>
+          <div className='flex flex-col mt-5 ml-10 h-full'>
+            <h1 className='font-bold text-2xl text-white mb-10'>Details Of the Criminal</h1>
+            <div className='overflow-y-auto h-[250px] bg-gray-800 rounded-lg p-4'>
+              <p className='text-sm text-gray-200'>Name: John Doe</p>
+              <p className='text-sm text-gray-200'>Age: 25</p>
+              <p className='text-sm text-gray-200'>Gender: Male</p>
+              <p className='text-sm text-gray-200'>Location: New York</p>
+              <p className='text-sm text-gray-200'>Profession: Student</p>
+              <p className='text-sm text-gray-200'>Name: John Doe</p>
+              <p className='text-sm text-gray-200'>Age: 25</p>
+              <p className='text-sm text-gray-200'>Gender: Male</p>
+              <p className='text-sm text-gray-200'>Location: New York</p>
+              <p className='text-sm text-gray-200'>Profession: Student</p>
             </div>
           </div>
 
           {/* Image */}
-          <div className='mt-10 mr-24'>
-            <img src='https://via.placeholder.com/150' alt='Criminal' className='rounded-full h-40 w-40 mx-auto' />
+          <div className='mt-10 mr-10 flex-shrink-0'>
+            <img src='https://via.placeholder.com/150' alt='Criminal' className='rounded-full h-40 w-40 border-4 border-white shadow-md' />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
