@@ -13,6 +13,7 @@ const Search = () => {
 
   return (
     <div className='flex lg:justify-around flex-col lg:flex-row lg:mt-20'>
+      <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#003300_100%)]"></div>
       <div className='flex items-center gap-6 justify-center mt-10 relative animate-fadeInUp'>
         <div className='w-full max-w-xs'>
           <label

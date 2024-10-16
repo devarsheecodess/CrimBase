@@ -82,281 +82,280 @@ const AddCriminal = () => {
 
   return (
     <>
-      <form className="max-w-md mx-auto mt-10 animate-fadeInUp" onSubmit={addCriminal}>
-        <h1 className='text-[#58C858] font-bold text-xl text-center mb-10 text-shadow-glow'>Enter the details of the Criminal</h1>
-        {/* Photo Input */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label className="block mb-2 text-sm font-medium text-gray-400" htmlFor="photo_input">Photo</label>
-          <input
-            name='photo'
-            onChange={handlePhotoChange}
-            className="block p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-            id="photo_input"
-            type="file"
-            accept='image/*'
-          />
-        </div>
+      <form className="max-w-3xl mx-auto bg-gradient-to-r from-green-900 to-green-950 mt-10 mb-10 p-8 rounded-xl shadow-lg animate-fadeInUp flex flex-col" onSubmit={addCriminal}>
+        <h1 className="text-[#58C858] font-bold text-3xl text-center mb-8 text-shadow-glow">Enter Criminal Details</h1>
 
-        {/* Name */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="name" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
-          <input
-            type="text"
-            name='name'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Photo Input */}
+          <div>
+            <label className="block mb-2 text-sm font-medium text-gray-400" htmlFor="photo_input">Photo</label>
+            <input
+              name="photo"
+              onChange={handlePhotoChange}
+              className="block w-full p-3 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+              id="photo_input"
+              type="file"
+              accept="image/*"
+              required
+            />
+          </div>
 
-        {/* Age */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="age" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Age</label>
-          <input
-            type="number"
-            name='age'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Name Input */}
+          <div>
+            <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-400">Name</label>
+            <input
+              type="text"
+              name="name"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Name"
+              required
+            />
+          </div>
 
-        {/* Gender */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="gender" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Gender</label>
-          <input
-            type="text"
-            name='gender'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Age Input */}
+          <div>
+            <label htmlFor="age" className="block mb-2 text-sm font-medium text-gray-400">Age</label>
+            <input
+              type="number"
+              name="age"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Age"
+              required
+            />
+          </div>
 
-        {/* Address */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="address" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Address</label>
-          <input
-            type="text"
-            name='address'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Gender Input */}
+          <div>
+            <label htmlFor="gender" className="block mb-2 text-sm font-medium text-gray-400">Gender</label>
+            <select
+              name="gender"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              required
+            >
+              <option value="" disabled selected>Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
 
-        {/* Date of Birth */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="dob" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Date of Birth</label>
-          <input
-            type="date"
-            name='dob'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-     
-          />
-        </div>
+          {/* Address Input */}
+          <div>
+            <label htmlFor="address" className="block mb-2 text-sm font-medium text-gray-400">Address</label>
+            <input
+              type="text"
+              name="address"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Address"
+              required
+            />
+          </div>
 
-        {/* Contact Number */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="contact" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Contact Number</label>
-          <input
-            type="text"
-            name='contact'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Date of Birth Input */}
+          <div>
+            <label htmlFor="dob" className="block mb-2 text-sm font-medium text-gray-400">Date of Birth</label>
+            <input
+              type="date"
+              name="dob"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+            />
+          </div>
 
-        {/* Arrested On */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="arrestedOn" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Arrested On</label>
-          <input
-            type="date"
-            name='arrestedOn'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-          
-          />
-        </div>
+          {/* Contact Number Input */}
+          <div>
+            <label htmlFor="contact" className="block mb-2 text-sm font-medium text-gray-400">Contact Number</label>
+            <input
+              type="text"
+              name="contact"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Contact Number"
+              required
+            />
+          </div>
 
-        {/* Arrested By */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="arrestedBy" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Arrested By</label>
-          <input
-            type="text"
-            name='arrestedBy'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Arrested On Input */}
+          <div>
+            <label htmlFor="arrestedOn" className="block mb-2 text-sm font-medium text-gray-400">Arrested On</label>
+            <input
+              type="date"
+              name="arrestedOn"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+            />
+          </div>
 
-        {/* Crime */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="crime" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Crime</label>
-          <input
-            type="text"
-            name='crime'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Arrested By Input */}
+          <div>
+            <label htmlFor="arrestedBy" className="block mb-2 text-sm font-medium text-gray-400">Arrested By</label>
+            <input
+              type="text"
+              name="arrestedBy"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Officer's Name"
+              required
+            />
+          </div>
 
-        {/* State */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="state" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">State</label>
-          <input
-            type="text"
-            name='state'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Crime Input */}
+          <div>
+            <label htmlFor="crime" className="block mb-2 text-sm font-medium text-gray-400">Crime</label>
+            <input
+              type="text"
+              name="crime"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Crime Committed"
+              required
+            />
+          </div>
 
-        {/* Location */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="location" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Location</label>
-          <input
-            type="text"
-            name='location'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* State Input */}
+          <div>
+            <label htmlFor="state" className="block mb-2 text-sm font-medium text-gray-400">State</label>
+            <input
+              type="text"
+              name="state"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter State"
+              required
+            />
+          </div>
 
-        {/* Height */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="height" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Height</label>
-          <input
-            type="text"
-            name='height'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Location Input */}
+          <div>
+            <label htmlFor="location" className="block mb-2 text-sm font-medium text-gray-400">Location</label>
+            <input
+              type="text"
+              name="location"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Location of Arrest"
+              required
+            />
+          </div>
 
-        {/* Weight */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="weight" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Weight</label>
-          <input
-            type="text"
-            name='weight'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Height Input */}
+          <div>
+            <label htmlFor="height" className="block mb-2 text-sm font-medium text-gray-400">Height (cm)</label>
+            <input
+              type="number"
+              name="height"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Height"
+            />
+          </div>
 
-        {/* Complexion */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="weight" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Complexion</label>
-          <input
-            type="text"
-            name='complexion'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Weight Input */}
+          <div>
+            <label htmlFor="weight" className="block mb-2 text-sm font-medium text-gray-400">Weight (kg)</label>
+            <input
+              type="number"
+              name="weight"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Weight"
+            />
+          </div>
 
-        {/* Prison Name */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="prisonName" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Prison Name</label>
-          <input
-            type="text"
-            name='prisonName'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Complexion Input */}
+          <div>
+            <label htmlFor="complexion" className="block mb-2 text-sm font-medium text-gray-400">Complexion</label>
+            <input
+              type="text"
+              name="complexion"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Complexion"
+            />
+          </div>
 
-        {/* Blood Group */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="bloodGroup" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Blood Group</label>
-          <input
-            type="text"
-            name='bloodGroup'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Prison Name Input */}
+          <div>
+            <label htmlFor="prisonName" className="block mb-2 text-sm font-medium text-gray-400">Prison Name</label>
+            <input
+              type="text"
+              name="prisonName"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Prison Name"
+            />
+          </div>
 
-        {/* DNA */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="dna" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">DNA</label>
-          <input
-            type="text"
-            name='dna'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* Blood Group Input */}
+          <div>
+            <label htmlFor="bloodGroup" className="block mb-2 text-sm font-medium text-gray-400">Blood Group</label>
+            <input
+              type="text"
+              name="bloodGroup"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Blood Group"
+            />
+          </div>
 
-        {/* Police Station Name */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="stationName" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Police Station Name</label>
-          <input
-            type="text"
-            name='stationName'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            required
-          />
-        </div>
+          {/* DNA Input */}
+          <div>
+            <label htmlFor="dna" className="block mb-2 text-sm font-medium text-gray-400">DNA</label>
+            <input
+              type="text"
+              name="dna"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter DNA Information"
+            />
+          </div>
 
-        {/* Fingerprint Input */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label className="block mb-2 text-sm font-medium text-gray-400" htmlFor="fingerprint_input">Fingerprint</label>
-          <input
-            name='fingerprint'
-            onChange={handleFingerprintChange}
-            className="block p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-            id="fingerprint_input"
-            type="file"
-          />
-        </div>
+          {/* Police Station Name Input */}
+          <div>
+            <label htmlFor="stationName" className="block mb-2 text-sm font-medium text-gray-400">Police Station Name</label>
+            <input
+              type="text"
+              name="stationName"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Police Station Name"
+            />
+          </div>
 
-        {/* Comments */}
-        <div className="relative z-0 w-full mb-5 group">
-          <label htmlFor="comments" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Comments</label>
-          <textarea
-            name='comments'
-            onChange={handleChange}
-            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
-            placeholder=" "
-            rows="4"
-          />
+
+          {/* Fingerprint Input */}
+          <div>
+            <label className="block mb-2 text-sm font-medium text-gray-400" htmlFor="photo_input">Fingerprint</label>
+            <input
+              name="fingerprint"
+              onChange={handleFingerprintChange}
+              className="block w-full p-3 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+              id="photo_input"
+              type="file"
+              accept="image/*"
+              required
+            />
+          </div>
+
+          {/* Comments Input */}
+          <div className="col-span-2">
+            <label htmlFor="comments" className="block mb-2 text-sm font-medium text-gray-400">Comments</label>
+            <textarea
+              name="comments"
+              onChange={handleChange}
+              className="block w-full p-2.5 bg-gray-800 text-white border border-gray-600 rounded-lg focus:outline-none focus:ring focus:ring-green-500"
+              placeholder="Enter Comments"
+              rows="3"
+            />
+          </div>
         </div>
 
         <button
           type="submit"
-          className="w-full mb-10 py-2.5 px-4 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="mt-6 w-full p-2 bg-green-600 text-white rounded-lg shadow-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200"
         >
           Add Criminal
         </button>

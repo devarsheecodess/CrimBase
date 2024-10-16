@@ -57,6 +57,7 @@ const Search = () => {
 
   return (
     <>
+    <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#003300_100%)]"></div>
       <div className='flex flex-col items-center justify-center mt-10 animate-fadeInUp'>
         <div className='relative w-full max-w-lg'>
           <i className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black fa-solid fa-magnifying-glass"></i>

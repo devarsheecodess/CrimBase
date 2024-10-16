@@ -20,7 +20,7 @@ const Header = () => {
 
     return (
         <div>
-            <header className="text-white  body-font bg-[#224420]">
+            <header className="text-white  body-font bg-transparent">
                 <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
                     <a className="flex title-font font-bold items-center text-[#86EFAC] ml-10 mb-4 md:mb-0">
                         <h1 className="ml-3 text-xl text-shadow-glow">CrimBase</h1>
