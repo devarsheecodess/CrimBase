@@ -1,27 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    transition-duration: 0.3s;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  transition-duration: 0.3s;
 }
 
-body{
-    background-color: black;
+body {
+  background-color: black;
 }
 
-.activeBtn{
-    color: #58C858;
-    text-shadow: '0 0 10px rgba(0, 255, 0, 0.8)';
+.activeBtn {
+  color: #58c858;
+  text-shadow: "0 0 10px rgba(0, 255, 0, 0.8)";
 }
 
 /* styles.css or any CSS file you are using */
 .hide-scrollbar::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
-  }
-  
-  .hide-scrollbar {
-    -ms-overflow-style: none; /* For Internet Explorer and Edge */
-    scrollbar-width: none; /* For Firefox */
-  }
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+
+.glow-effect {
+  /* Glow effect */
+  box-shadow: 0 0 18px 0px rgb(0 0 0 / 80%), -1px 1px 20px 0px rgb(76 174 117 / 60%), 1px 0px 30px rgb(131 200 160 / 40%)
+}
+
+/* If you need to ensure the container is fully visible, consider adding a background color or opacity */
+.bg-gradient {
+  background: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Just a light background for visibility */
+}

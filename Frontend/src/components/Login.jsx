@@ -77,7 +77,7 @@ const Login = () => {
                             <form className="space-y-4 md:space-y-6" action="#">
                                 <div>
                                     <label for="email" className="block mb-2 text-sm font-medium text-[#58C858]">Police station ID</label>
-                                    <input type="text" name="policeID" onChange={(e) => handleChange(e)} value={form.policeID} id="police-id" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="police station ID" required="">
+                                    <input type="text" name="policeID" onChange={(e) => handleChange(e)} value={form.policeID} id="police-id" className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" placeholder="police station ID" required="">
                                     </input>
                                 </div>
                                 <div>
@@ -96,7 +96,7 @@ const Login = () => {
                                             id="password"
                                             required="true"
                                             placeholder='password'
-                                            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
                                         />
                                         <button
                                             type="button"

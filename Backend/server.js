@@ -140,6 +140,24 @@ app.get("/criminals", async (req, res) => {
   }
 });
 
+// Get criminal by ID
+app.get("/criminal", async (req, res) => {
+  const { id } = req.query;
+  try {
+    const criminal = await Criminal.findOne({id: id});
+    res.json(criminal);
+  } catch (error) {
+    console.error("Error fetching criminal:", error);
+    res
+      .status(500)
+      .json({
+        success: false,
+        message: "Failed to fetch criminal",
+        error: error.message,
+      });
+  }
+});
+
 // Post Criminals on DNA
 app.post("/dna", async (req, res) => {
   const { data } = req.body;

@@ -57,7 +57,7 @@ const Search = () => {
 
   return (
     <>
-    <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#003300_100%)]"></div>
+      <div class="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#003300_100%)]"></div>
       <div className='flex flex-col items-center justify-center mt-10 animate-fadeInUp'>
         <div className='relative w-full max-w-lg'>
           <i className="absolute left-3 top-1/2 transform -translate-y-1/2 text-black fa-solid fa-magnifying-glass"></i>
@@ -88,7 +88,7 @@ const Search = () => {
               />
               <h3 className='text-center text-xl font-semibold mb-4'>{criminal.name}</h3>
               <button
-                className='block w-full bg-blue-500 p-3 rounded-md text-white font-bold hover:bg-blue-600 transition-all duration-300'
+                className='block w-full bg-green-500 p-3 rounded-md text-white font-bold hover:bg-green-600 transition-all duration-300'
                 onClick={() => handleView(criminal)}
               >
                 View Details
@@ -133,7 +133,7 @@ const Search = () => {
                   <p className='mt-4 text-ellipsis overflow-hidden whitespace-nowrap w-56'>
                     <strong>DNA Sequence:</strong> {selectedCriminal.dna}
                   </p>
-                  <i class='fa-solid fa-clipboard mt-3 ml-3 hover:text-gray-400 cursor-pointer' onClick={()=>handleClipboard()}></i>
+                  <i class='fa-solid fa-clipboard mt-3 ml-3 hover:text-gray-400 cursor-pointer' onClick={() => handleClipboard()}></i>
                 </div>
 
                 <p className='mt-4'><strong>Station Name:</strong> {selectedCriminal.stationName}</p>
